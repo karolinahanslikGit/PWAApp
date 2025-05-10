@@ -6,7 +6,6 @@ self.addEventListener('install', function(event) {
             console.log('Service Worker: Otwarto cache');
 
             const filesToCache = [
-                
                 './index.html',
                 './app.js',
                 './style.css',
@@ -14,7 +13,6 @@ self.addEventListener('install', function(event) {
                 './manifest.json'
             ];
 
-            // Sprawdzamy, czy pliki są dostępne i poprawnie je zapisujemy
             return Promise.all(filesToCache.map(function(file) {
                 return fetch(file).then(function(response) {
                     if (response.ok) {
@@ -26,6 +24,25 @@ self.addEventListener('install', function(event) {
                     console.error(`Błąd fetch dla pliku: ${file}`, error);
                 });
             }));
+        })
+    );
+});
+
+self.addEventListener('fetch', function(event) {
+    // Obsługa wejścia na stronę (czyli żądania dokumentu HTML)
+    if (event.request.mode === 'navigate') {
+        event.respondWith(
+            caches.match('./index.html').then(function(response) {
+                return response || fetch('./index.html');
+            })
+        );
+        return;
+    }
+
+    // Obsługa pozostałych zasobów (CSS, JS, obrazki itd.)
+    event.respondWith(
+        caches.match(event.request).then(function(response) {
+            return response || fetch(event.request);
         })
     );
 });
