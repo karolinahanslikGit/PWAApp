@@ -6,7 +6,7 @@ self.addEventListener('install', function(event) {
             console.log('Service Worker: Otwarto cache');
 
             const filesToCache = [
-                'https://karolinahanslikgit.github.io/PWAApp/index.html',
+                './index.html',
                 './app.js',
                 './style.css',
                 './icon.png',
