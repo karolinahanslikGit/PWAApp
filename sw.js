@@ -6,7 +6,7 @@ self.addEventListener('install', function(event) {
             console.log('Service Worker: Otwarto cache');
 
             const filesToCache = [
-                '/',
+                
                 './index.html',
                 './app.js',
                 './style.css',
