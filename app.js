@@ -4,11 +4,4 @@ if ('serviceWorker' in navigator) {
       .then(reg => console.log('SW registered', reg))
       .catch(err => console.error('SW registration failed', err));
   });
-  if(navigator.onLine)
-  {
-    console.log("Strona działa online");
-                
 }
-  else{
-    console.log("Strona działa offline");
-                }}
