@@ -6,9 +6,9 @@ if ('serviceWorker' in navigator) {
   });
   if(navigator.onLine)
   {
-    console.log("Strona działa online);
+    console.log("Strona działa online");
                 
 }
   else{
-    console.log("Strona działa offline);
+    console.log("Strona działa offline");
                 }}
