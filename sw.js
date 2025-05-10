@@ -1,5 +1,8 @@
 self.addEventListener('install', function(event) {
     console.log('Service Worker: Instalowanie...');
+   if (event.request.url.includes('favicon.ico')) {
+        return;  // Zignoruj to żądanie, nie wykonuj fetch ani cache
+    }
 
     event.waitUntil(
         caches.open('my-cache').then(function(cache) {
