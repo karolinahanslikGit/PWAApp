@@ -4,6 +4,7 @@ self.addEventListener('install', function(event) {
     event.waitUntil(
         caches.open('my-cache').then(function(cache) {
             console.log('Service Worker: Otwarto cache');
+
             const filesToCache = [
                 '/',
                 './index.html',
@@ -13,17 +14,18 @@ self.addEventListener('install', function(event) {
                 './manifest.json'
             ];
 
-            filesToCache.forEach(function(file) {
-                console.log('Próba dodania pliku do cache: ', file);
-            });
-
-            return cache.addAll(filesToCache)
-                .then(function() {
-                    console.log('Service Worker: Pliki zostały dodane do cache');
-                })
-                .catch(function(error) {
-                    console.error('Błąd podczas dodawania plików do cache', error);
+            // Sprawdzamy, czy pliki są dostępne i poprawnie je zapisujemy
+            return Promise.all(filesToCache.map(function(file) {
+                return fetch(file).then(function(response) {
+                    if (response.ok) {
+                        return cache.put(file, response);
+                    } else {
+                        console.error(`Błąd podczas pobierania pliku: ${file}`);
+                    }
+                }).catch(function(error) {
+                    console.error(`Błąd fetch dla pliku: ${file}`, error);
                 });
+            }));
         })
     );
 });
