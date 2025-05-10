@@ -20,7 +20,9 @@ self.addEventListener('install', function(event) {
            
                 
 
-            ]);
+            ]).catch(function(error) {
+                console.error('Błąd podczas dodawania plików do cache:', error);
+            });
 
         })
 
