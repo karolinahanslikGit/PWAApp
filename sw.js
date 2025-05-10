@@ -11,11 +11,11 @@ self.addEventListener('install', function(event) {
             return cache.addAll([
 
                 '/',
-                '/index.html',
-                '/app.js',
-                '/style.css',
-                '/icon.png',
-                '/sw.js'
+                'index.html',
+                'app.js',
+                'style.css',
+                'icon.png',
+                'sw.js'
                 
 
             ]);
