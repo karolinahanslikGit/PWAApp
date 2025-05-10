@@ -15,7 +15,7 @@ self.addEventListener('install', function(event) {
                 'app.js',
                 'style.css',
                 'icon.png',
-                'sw.js'
+           
                 
 
             ]);
