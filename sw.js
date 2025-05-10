@@ -14,7 +14,8 @@ self.addEventListener('install', function(event) {
                 './index.html',
                 './app.js',
                 './style.css',
-                '/.icon.png',
+                './icon.png',
+                
            
                 
 
