@@ -1,0 +1,33 @@
+<!--index.html-->
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pogoda</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="cont">
+  <h1>Sprawdź pogodę</h1>
+<div class="rowForm">
+    <input type="text" id="city" placeholder="Miasto" required />
+    <button type="submit" onclick="searchButtonOnClick()">Szukaj</button>
+  </div>
+  <div id="weatherResult"></div>
+  <nav>
+    <a href="form.html" class="link">Dodaj do ulubionych</a> 
+    <a href="favourites.html"class="link">Ulubione miasta</a>
+  </nav>
+</div>
+  <script src="api.js"></script>
+    <script>
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("sw.js")
+      .then(() => console.log("Service Worker poprawnie zarejestrowany"))
+      .catch(err => console.log("Błąd service workera", err));
+  }
+</script>
+</body>
+</html>

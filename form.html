@@ -1,0 +1,26 @@
+<!--form.html-->
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dodaj miasto</title>
+   <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="cont">
+    
+  <h1>Dodaj ulubione miasto</h1>
+  <form id="addCityForm" class="rowForm">
+    <input type="text" id="cityName" placeholder="Miasto" required />
+    <button type="submit">Dodaj</button>
+  </form>
+ <p id="status"></p>
+  <nav>
+    <a href="index.html" class="link">Pogoda</a> 
+    <a href="favourites.html" class="link">Ulubione miasta</a>
+  </nav>
+</div>
+  <script src="db.js"></script>
+</body>
+</html>
